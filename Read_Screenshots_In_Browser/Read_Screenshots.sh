@@ -8,3 +8,4 @@ do
 	echo "<h3>$i</h3>" >> index.html
 	echo "<img src=$i><br>" >> index.html
 done
+
