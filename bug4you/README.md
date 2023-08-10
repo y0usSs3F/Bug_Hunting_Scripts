@@ -7,7 +7,7 @@
 
 
 
-# USAGE:  ./bug4y0u.sh -d [DOMAIN...] [OPTIONS...]
+### USAGE:  ./bug4y0u.sh -d [DOMAIN...] [OPTIONS...]
 	-h  ,  --help                    Help menu
 	-d  ,  --domain                  Target Domain like domain.com
 	-se ,  --subdomain-enum          Subdomain Enumeration
