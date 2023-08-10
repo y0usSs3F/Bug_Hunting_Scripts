@@ -1,7 +1,7 @@
 # Bug_Hunting_Scripts
 
 
-## USAGE:./bug4y0u.sh [DOMAIN...] [OPTIONS...]
+### USAGE:./bug4y0u.sh [DOMAIN...] [OPTIONS...]
 	-h  ,  --help                    Help menu
 	-d  ,  --domain                  Target Domain like domain.com
 	-se ,  --subdomain-enum          Subdomain Enumeration
