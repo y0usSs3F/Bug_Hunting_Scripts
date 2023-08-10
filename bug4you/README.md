@@ -1,4 +1,4 @@
-# bug4you.sh is a script that do lots of stuff for you using threads as fast as possible, including:
+## bug4you.sh is a script that do lots of stuff for you using threads as fast as possible, including:
 
 ####     1) Subdomain Enumeration with 7 different Tools   (subfinder, assetfinder, subbrute, gobuster, dnsgen, censys, crt.sh)
 ####     2) Extracting URLs with 5 different Tools         (waybackurls, gospider, gau, katana, linkfinder)
