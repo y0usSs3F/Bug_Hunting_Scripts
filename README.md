@@ -1,6 +1,3 @@
-# Bug_Hunting_Scripts
-
-
 ### USAGE:./bug4y0u.sh [DOMAIN...] [OPTIONS...]
 	-h  ,  --help                    Help menu
 	-d  ,  --domain                  Target Domain like domain.com
