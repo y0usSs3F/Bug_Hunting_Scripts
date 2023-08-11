@@ -2,7 +2,7 @@
 
 
 # The Script is Basically taking from y0u Target URL with -u option then Crawling this Target and Extracting all the URLs on it including css files, js files, different endpoints with different functionalities, every URL within the Target Would be extracted!
-
+# Usage: ./crawl.py -u https://www.example.com
 
 
 import requests
