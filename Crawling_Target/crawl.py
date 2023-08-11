@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 
-# The Script is Basically taking from y0u Target URL with -u option then Crawling this Target and Extracting all the URLs on it including css files, js files, different endpoints with different functionalities, every URL within the Target Would be extracted!
+# The Script is Basically taking from y0u Target URL with -u option then Crawling this Target and Extracting all the URLs on it including css files, img files, pdf files, different endpoints with different functionalities as long as the link inside the source code of the frontend it would be extracted, every URL within Source Code of the FrontEnd Would be extracted!
 # Usage: ./crawl.py -u https://www.example.com
 
 
