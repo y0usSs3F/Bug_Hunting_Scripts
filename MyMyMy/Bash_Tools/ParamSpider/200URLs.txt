@@ -1,0 +1,4 @@
+https://app.mail.discover.clarivate.com/e/er?utm_campaign=EM1_Techstreet_Enterprise_Product_Feature_Videos_IPS_Global_2020&amp;utm_medium=email&amp;utm_source=Eloqua&amp;s=786780033&amp;lid=5006&amp;elqTrackId=eee5d1f8bd7b45cfb4b04c9b21799c12&amp;elq=54003027d7b545feab43393c7a08754c&amp;elqaid=8282&amp;elqat=1
+https://app.mail.discover.clarivate.com/e/er?utm_campaign=EM1_Techstreet_Enterprise_Product_Feature_Videos_IPS_Global_2020&amp;utm_medium=email&amp;utm_source=Eloqua&amp;s=786780033&amp;lid=5003&amp;elqTrackId=569f42b8ce864e9abcf49783023ab866&amp;elq=54003027d7b545feab43393c7a08754c&amp;elqaid=8282&amp;elqat=1
+https://app.mail.discover.clarivate.com/e/er
+https://api.clarivate.com/swagger-ui/?url=https%3A%2F%2Fdeveloper.clarivate.com%2Fapis%2Fincites%2Fswagger
