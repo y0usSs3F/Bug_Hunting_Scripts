@@ -1,0 +1,493 @@
+SQL injection
+-------------
+SQL injection vulnerability in WHERE clause allowing retrieval of hidden data		[92mAPPRENTICE[0m
+SQL injection vulnerability allowing login bypass		[92mAPPRENTICE[0m
+SQL injection UNION attack, determining the number of columns returned by the query		[93mPRACTITIONER[0m
+SQL injection UNION attack, finding a column containing text		[93mPRACTITIONER[0m
+SQL injection UNION attack, retrieving data from other tables		[93mPRACTITIONER[0m
+SQL injection UNION attack, retrieving multiple values in a single column		[93mPRACTITIONER[0m
+SQL injection attack, querying the database type and version on Oracle		[93mPRACTITIONER[0m
+SQL injection attack, querying the database type and version on MySQL and Microsoft		[93mPRACTITIONER[0m
+SQL injection attack, listing the database contents on non-Oracle databases		[93mPRACTITIONER[0m
+SQL injection attack, listing the database contents on Oracle		[93mPRACTITIONER[0m
+Blind SQL injection with conditional responses		[93mPRACTITIONER[0m
+Blind SQL injection with conditional errors		[93mPRACTITIONER[0m
+Visible error-based SQL injection		[93mPRACTITIONER[0m
+Blind SQL injection with time delays		[93mPRACTITIONER[0m
+Blind SQL injection with time delays and information retrieval		[93mPRACTITIONER[0m
+Blind SQL injection with out-of-band interaction		[93mPRACTITIONER[0m
+Blind SQL injection with out-of-band data exfiltration		[93mPRACTITIONER[0m
+SQL injection with filter bypass via XML encoding		[93mPRACTITIONER[0m
+
+****************************************************
+2 [92mApprentice[0m Lab, 16 [93mPractitioner[0m Lab, 0 [91mExpert[0m Lab
+Number of labs: 18
+****************************************************
+
+
+
+Cross-site scripting
+--------------------
+Reflected XSS into HTML context with nothing encoded		[92mAPPRENTICE[0m
+Stored XSS into HTML context with nothing encoded		[92mAPPRENTICE[0m
+DOM XSS in document.write sink using source location.search		[92mAPPRENTICE[0m
+DOM XSS in innerHTML sink using source location.search		[92mAPPRENTICE[0m
+DOM XSS in jQuery anchor href attribute sink using location.search source		[92mAPPRENTICE[0m
+DOM XSS in jQuery selector sink using a hashchange event		[92mAPPRENTICE[0m
+Reflected XSS into attribute with angle brackets HTML-encoded		[92mAPPRENTICE[0m
+Stored XSS into anchor href attribute with double quotes HTML-encoded		[92mAPPRENTICE[0m
+Reflected XSS into a JavaScript string with angle brackets HTML encoded		[92mAPPRENTICE[0m
+DOM XSS in document.write sink using source location.search inside a select element		[93mPRACTITIONER[0m
+DOM XSS in AngularJS expression with angle brackets and double quotes HTML-encoded		[93mPRACTITIONER[0m
+Reflected DOM XSS		[93mPRACTITIONER[0m
+Stored DOM XSS		[93mPRACTITIONER[0m
+Exploiting cross-site scripting to steal cookies		[93mPRACTITIONER[0m
+Exploiting cross-site scripting to capture passwords		[93mPRACTITIONER[0m
+Exploiting XSS to perform CSRF		[93mPRACTITIONER[0m
+Reflected XSS into HTML context with most tags and attributes blocked		[93mPRACTITIONER[0m
+Reflected XSS into HTML context with all tags blocked except custom ones		[93mPRACTITIONER[0m
+Reflected XSS with some SVG markup allowed		[93mPRACTITIONER[0m
+Reflected XSS in canonical link tag		[93mPRACTITIONER[0m
+Reflected XSS into a JavaScript string with single quote and backslash escaped		[93mPRACTITIONER[0m
+Reflected XSS into a JavaScript string with angle brackets and double quotes HTML-encoded and single quotes escaped		[93mPRACTITIONER[0m
+Stored XSS into onclick event with angle brackets and double quotes HTML-encoded and single quotes and backslash escaped		[93mPRACTITIONER[0m
+Reflected XSS into a template literal with angle brackets, single, double quotes, backslash and backticks Unicode-escaped		[93mPRACTITIONER[0m
+Reflected XSS with event handlers and href attributes blocked		[91mEXPERT[0m
+Reflected XSS in a JavaScript URL with some characters blocked		[91mEXPERT[0m
+Reflected XSS with AngularJS sandbox escape without strings		[91mEXPERT[0m
+Reflected XSS with AngularJS sandbox escape and CSP		[91mEXPERT[0m
+Reflected XSS protected by very strict CSP, with dangling markup attack		[91mEXPERT[0m
+Reflected XSS protected by CSP, with CSP bypass		[91mEXPERT[0m
+
+****************************************************
+9 [92mApprentice[0m Lab, 15 [93mPractitioner[0m Lab, 6 [91mExpert[0m Lab
+Number of labs: 30
+****************************************************
+
+
+
+Cross-site request forgery (CSRF)
+---------------------------------
+CSRF vulnerability with no defenses		[92mAPPRENTICE[0m
+CSRF where token validation depends on request method		[93mPRACTITIONER[0m
+CSRF where token validation depends on token being present		[93mPRACTITIONER[0m
+CSRF where token is not tied to user session		[93mPRACTITIONER[0m
+CSRF where token is tied to non-session cookie		[93mPRACTITIONER[0m
+CSRF where token is duplicated in cookie		[93mPRACTITIONER[0m
+SameSite Lax bypass via method override		[93mPRACTITIONER[0m
+SameSite Strict bypass via client-side redirect		[93mPRACTITIONER[0m
+SameSite Strict bypass via sibling domain		[93mPRACTITIONER[0m
+SameSite Lax bypass via cookie refresh		[93mPRACTITIONER[0m
+CSRF where Referer validation depends on header being present		[93mPRACTITIONER[0m
+CSRF with broken Referer validation		[93mPRACTITIONER[0m
+
+****************************************************
+1 [92mApprentice[0m Lab, 11 [93mPractitioner[0m Lab, 0 [91mExpert[0m Lab
+Number of labs: 12
+****************************************************
+
+
+
+Clickjacking
+------------
+Basic clickjacking with CSRF token protection		[92mAPPRENTICE[0m
+Clickjacking with form input data prefilled from a URL parameter		[92mAPPRENTICE[0m
+Clickjacking with a frame buster script		[92mAPPRENTICE[0m
+Exploiting clickjacking vulnerability to trigger DOM-based XSS		[93mPRACTITIONER[0m
+Multistep clickjacking		[93mPRACTITIONER[0m
+
+****************************************************
+3 [92mApprentice[0m Lab, 2 [93mPractitioner[0m Lab, 0 [91mExpert[0m Lab
+Number of labs: 5
+****************************************************
+
+
+
+DOM-based vulnerabilities
+-------------------------
+DOM XSS using web messages		[93mPRACTITIONER[0m
+DOM XSS using web messages and a JavaScript URL		[93mPRACTITIONER[0m
+DOM XSS using web messages and JSON.parse		[93mPRACTITIONER[0m
+DOM-based open redirection		[93mPRACTITIONER[0m
+DOM-based cookie manipulation		[93mPRACTITIONER[0m
+Exploiting DOM clobbering to enable XSS		[91mEXPERT[0m
+Clobbering DOM attributes to bypass HTML filters		[91mEXPERT[0m
+
+****************************************************
+0 [92mApprentice[0m Lab, 5 [93mPractitioner[0m Lab, 2 [91mExpert[0m Lab
+Number of labs: 7
+****************************************************
+
+
+
+Cross-origin resource sharing (CORS)
+------------------------------------
+CORS vulnerability with basic origin reflection		[92mAPPRENTICE[0m
+CORS vulnerability with trusted null origin		[92mAPPRENTICE[0m
+CORS vulnerability with trusted insecure protocols		[93mPRACTITIONER[0m
+CORS vulnerability with internal network pivot attack		[91mEXPERT[0m
+
+****************************************************
+2 [92mApprentice[0m Lab, 1 [93mPractitioner[0m Lab, 1 [91mExpert[0m Lab
+Number of labs: 4
+****************************************************
+
+
+
+XML external entity (XXE) injection
+-----------------------------------
+Exploiting XXE using external entities to retrieve files		[92mAPPRENTICE[0m
+Exploiting XXE to perform SSRF attacks		[92mAPPRENTICE[0m
+Blind XXE with out-of-band interaction		[93mPRACTITIONER[0m
+Blind XXE with out-of-band interaction via XML parameter entities		[93mPRACTITIONER[0m
+Exploiting blind XXE to exfiltrate data using a malicious external DTD		[93mPRACTITIONER[0m
+Exploiting blind XXE to retrieve data via error messages		[93mPRACTITIONER[0m
+Exploiting XInclude to retrieve files		[93mPRACTITIONER[0m
+Exploiting XXE via image file upload		[93mPRACTITIONER[0m
+Exploiting XXE to retrieve data by repurposing a local DTD		[91mEXPERT[0m
+
+****************************************************
+2 [92mApprentice[0m Lab, 6 [93mPractitioner[0m Lab, 1 [91mExpert[0m Lab
+Number of labs: 9
+****************************************************
+
+
+
+Server-side request forgery (SSRF)
+----------------------------------
+Basic SSRF against the local server		[92mAPPRENTICE[0m
+Basic SSRF against another back-end system		[92mAPPRENTICE[0m
+SSRF with blacklist-based input filter		[93mPRACTITIONER[0m
+SSRF with filter bypass via open redirection vulnerability		[93mPRACTITIONER[0m
+Blind SSRF with out-of-band detection		[93mPRACTITIONER[0m
+SSRF with whitelist-based input filter		[91mEXPERT[0m
+Blind SSRF with Shellshock exploitation		[91mEXPERT[0m
+
+****************************************************
+2 [92mApprentice[0m Lab, 3 [93mPractitioner[0m Lab, 2 [91mExpert[0m Lab
+Number of labs: 7
+****************************************************
+
+
+
+HTTP request smuggling
+----------------------
+HTTP request smuggling, basic CL.TE vulnerability		[93mPRACTITIONER[0m
+HTTP request smuggling, basic TE.CL vulnerability		[93mPRACTITIONER[0m
+HTTP request smuggling, obfuscating the TE header		[93mPRACTITIONER[0m
+HTTP request smuggling, confirming a CL.TE vulnerability via differential responses		[93mPRACTITIONER[0m
+HTTP request smuggling, confirming a TE.CL vulnerability via differential responses		[93mPRACTITIONER[0m
+Exploiting HTTP request smuggling to bypass front-end security controls, CL.TE vulnerability		[93mPRACTITIONER[0m
+Exploiting HTTP request smuggling to bypass front-end security controls, TE.CL vulnerability		[93mPRACTITIONER[0m
+Exploiting HTTP request smuggling to reveal front-end request rewriting		[93mPRACTITIONER[0m
+Exploiting HTTP request smuggling to capture other users' requests		[93mPRACTITIONER[0m
+Exploiting HTTP request smuggling to deliver reflected XSS		[93mPRACTITIONER[0m
+Response queue poisoning via H2.TE request smuggling		[93mPRACTITIONER[0m
+H2.CL request smuggling		[93mPRACTITIONER[0m
+HTTP/2 request smuggling via CRLF injection		[93mPRACTITIONER[0m
+HTTP/2 request splitting via CRLF injection		[93mPRACTITIONER[0m
+CL.0 request smuggling		[93mPRACTITIONER[0m
+Exploiting HTTP request smuggling to perform web cache poisoning		[91mEXPERT[0m
+Exploiting HTTP request smuggling to perform web cache deception		[91mEXPERT[0m
+Bypassing access controls via HTTP/2 request tunnelling		[91mEXPERT[0m
+Web cache poisoning via HTTP/2 request tunnelling		[91mEXPERT[0m
+Client-side desync		[91mEXPERT[0m
+Browser cache poisoning via client-side desync		[91mEXPERT[0m
+Server-side pause-based request smuggling		[91mEXPERT[0m
+
+****************************************************
+0 [92mApprentice[0m Lab, 15 [93mPractitioner[0m Lab, 7 [91mExpert[0m Lab
+Number of labs: 22
+****************************************************
+
+
+
+OS command injection
+--------------------
+OS command injection, simple case		[92mAPPRENTICE[0m
+Blind OS command injection with time delays		[93mPRACTITIONER[0m
+Blind OS command injection with output redirection		[93mPRACTITIONER[0m
+Blind OS command injection with out-of-band interaction		[93mPRACTITIONER[0m
+Blind OS command injection with out-of-band data exfiltration		[93mPRACTITIONER[0m
+
+****************************************************
+1 [92mApprentice[0m Lab, 4 [93mPractitioner[0m Lab, 0 [91mExpert[0m Lab
+Number of labs: 5
+****************************************************
+
+
+
+Server-side template injection
+------------------------------
+Basic server-side template injection		[93mPRACTITIONER[0m
+Basic server-side template injection (code context)		[93mPRACTITIONER[0m
+Server-side template injection using documentation		[93mPRACTITIONER[0m
+Server-side template injection in an unknown language with a documented exploit		[93mPRACTITIONER[0m
+Server-side template injection with information disclosure via user-supplied objects		[93mPRACTITIONER[0m
+Server-side template injection in a sandboxed environment		[91mEXPERT[0m
+Server-side template injection with a custom exploit		[91mEXPERT[0m
+
+****************************************************
+0 [92mApprentice[0m Lab, 5 [93mPractitioner[0m Lab, 2 [91mExpert[0m Lab
+Number of labs: 7
+****************************************************
+
+
+
+Directory traversal
+-------------------
+File path traversal, simple case		[92mAPPRENTICE[0m
+File path traversal, traversal sequences blocked with absolute path bypass		[93mPRACTITIONER[0m
+File path traversal, traversal sequences stripped non-recursively		[93mPRACTITIONER[0m
+File path traversal, traversal sequences stripped with superfluous URL-decode		[93mPRACTITIONER[0m
+File path traversal, validation of start of path		[93mPRACTITIONER[0m
+File path traversal, validation of file extension with null byte bypass		[93mPRACTITIONER[0m
+
+****************************************************
+1 [92mApprentice[0m Lab, 5 [93mPractitioner[0m Lab, 0 [91mExpert[0m Lab
+Number of labs: 6
+****************************************************
+
+
+
+Access control vulnerabilities
+------------------------------
+Unprotected admin functionality		[92mAPPRENTICE[0m
+Unprotected admin functionality with unpredictable URL		[92mAPPRENTICE[0m
+User role controlled by request parameter		[92mAPPRENTICE[0m
+User role can be modified in user profile		[92mAPPRENTICE[0m
+User ID controlled by request parameter 		[92mAPPRENTICE[0m
+User ID controlled by request parameter, with unpredictable user IDs
+				[92mAPPRENTICE[0m
+User ID controlled by request parameter with data leakage in redirect 		[92mAPPRENTICE[0m
+User ID controlled by request parameter with password disclosure		[92mAPPRENTICE[0m
+Insecure direct object references		[92mAPPRENTICE[0m
+URL-based access control can be circumvented		[93mPRACTITIONER[0m
+Method-based access control can be circumvented		[93mPRACTITIONER[0m
+Multi-step process with no access control on one step
+				[93mPRACTITIONER[0m
+Referer-based access control
+				[93mPRACTITIONER[0m
+
+****************************************************
+9 [92mApprentice[0m Lab, 4 [93mPractitioner[0m Lab, 0 [91mExpert[0m Lab
+Number of labs: 13
+****************************************************
+
+
+
+Authentication
+--------------
+Username enumeration via different responses		[92mAPPRENTICE[0m
+2FA simple bypass		[92mAPPRENTICE[0m
+Password reset broken logic		[92mAPPRENTICE[0m
+Username enumeration via subtly different responses		[93mPRACTITIONER[0m
+Username enumeration via response timing		[93mPRACTITIONER[0m
+Broken brute-force protection, IP block		[93mPRACTITIONER[0m
+Username enumeration via account lock		[93mPRACTITIONER[0m
+2FA broken logic		[93mPRACTITIONER[0m
+Brute-forcing a stay-logged-in cookie		[93mPRACTITIONER[0m
+Offline password cracking		[93mPRACTITIONER[0m
+Password reset poisoning via middleware		[93mPRACTITIONER[0m
+Password brute-force via password change		[93mPRACTITIONER[0m
+Broken brute-force protection, multiple credentials per request		[91mEXPERT[0m
+2FA bypass using a brute-force attack		[91mEXPERT[0m
+
+****************************************************
+3 [92mApprentice[0m Lab, 9 [93mPractitioner[0m Lab, 2 [91mExpert[0m Lab
+Number of labs: 14
+****************************************************
+
+
+
+WebSockets
+----------
+Manipulating WebSocket messages to exploit vulnerabilities		[92mAPPRENTICE[0m
+Manipulating the WebSocket handshake to exploit vulnerabilities		[93mPRACTITIONER[0m
+Cross-site WebSocket hijacking		[93mPRACTITIONER[0m
+
+****************************************************
+1 [92mApprentice[0m Lab, 2 [93mPractitioner[0m Lab, 0 [91mExpert[0m Lab
+Number of labs: 3
+****************************************************
+
+
+
+Web cache poisoning
+-------------------
+Web cache poisoning with an unkeyed header		[93mPRACTITIONER[0m
+Web cache poisoning with an unkeyed cookie		[93mPRACTITIONER[0m
+Web cache poisoning with multiple headers		[93mPRACTITIONER[0m
+Targeted web cache poisoning using an unknown header		[93mPRACTITIONER[0m
+Web cache poisoning via an unkeyed query string		[93mPRACTITIONER[0m
+Web cache poisoning via an unkeyed query parameter		[93mPRACTITIONER[0m
+Parameter cloaking		[93mPRACTITIONER[0m
+Web cache poisoning via a fat GET request		[93mPRACTITIONER[0m
+URL normalization		[93mPRACTITIONER[0m
+Web cache poisoning to exploit a DOM vulnerability via a cache with strict cacheability criteria		[91mEXPERT[0m
+Combining web cache poisoning vulnerabilities		[91mEXPERT[0m
+Cache key injection		[91mEXPERT[0m
+Internal cache poisoning		[91mEXPERT[0m
+
+****************************************************
+0 [92mApprentice[0m Lab, 9 [93mPractitioner[0m Lab, 4 [91mExpert[0m Lab
+Number of labs: 13
+****************************************************
+
+
+
+Insecure deserialization
+------------------------
+Modifying serialized objects		[92mAPPRENTICE[0m
+Modifying serialized data types		[93mPRACTITIONER[0m
+Using application functionality to exploit insecure deserialization		[93mPRACTITIONER[0m
+Arbitrary object injection in PHP		[93mPRACTITIONER[0m
+Exploiting Java deserialization with Apache Commons		[93mPRACTITIONER[0m
+Exploiting PHP deserialization with a pre-built gadget chain		[93mPRACTITIONER[0m
+Exploiting Ruby deserialization using a documented gadget chain		[93mPRACTITIONER[0m
+Developing a custom gadget chain for Java deserialization		[91mEXPERT[0m
+Developing a custom gadget chain for PHP deserialization		[91mEXPERT[0m
+Using PHAR deserialization to deploy a custom gadget chain		[91mEXPERT[0m
+
+****************************************************
+1 [92mApprentice[0m Lab, 6 [93mPractitioner[0m Lab, 3 [91mExpert[0m Lab
+Number of labs: 10
+****************************************************
+
+
+
+Information disclosure
+----------------------
+Information disclosure in error messages		[92mAPPRENTICE[0m
+Information disclosure on debug page		[92mAPPRENTICE[0m
+Source code disclosure via backup files		[92mAPPRENTICE[0m
+Authentication bypass via information disclosure		[92mAPPRENTICE[0m
+Information disclosure in version control history		[93mPRACTITIONER[0m
+
+****************************************************
+4 [92mApprentice[0m Lab, 1 [93mPractitioner[0m Lab, 0 [91mExpert[0m Lab
+Number of labs: 5
+****************************************************
+
+
+
+Business logic vulnerabilities
+------------------------------
+Excessive trust in client-side controls		[92mAPPRENTICE[0m
+High-level logic vulnerability		[92mAPPRENTICE[0m
+Inconsistent security controls		[92mAPPRENTICE[0m
+Flawed enforcement of business rules		[92mAPPRENTICE[0m
+Low-level logic flaw		[93mPRACTITIONER[0m
+Inconsistent handling of exceptional input		[93mPRACTITIONER[0m
+Weak isolation on dual-use endpoint		[93mPRACTITIONER[0m
+Insufficient workflow validation		[93mPRACTITIONER[0m
+Authentication bypass via flawed state machine		[93mPRACTITIONER[0m
+Infinite money logic flaw		[93mPRACTITIONER[0m
+Authentication bypass via encryption oracle		[93mPRACTITIONER[0m
+
+****************************************************
+4 [92mApprentice[0m Lab, 7 [93mPractitioner[0m Lab, 0 [91mExpert[0m Lab
+Number of labs: 11
+****************************************************
+
+
+
+HTTP Host header attacks
+------------------------
+Basic password reset poisoning		[92mAPPRENTICE[0m
+Host header authentication bypass		[92mAPPRENTICE[0m
+Web cache poisoning via ambiguous requests		[93mPRACTITIONER[0m
+Routing-based SSRF		[93mPRACTITIONER[0m
+SSRF via flawed request parsing		[93mPRACTITIONER[0m
+Host validation bypass via connection state attack		[93mPRACTITIONER[0m
+Password reset poisoning via dangling markup		[91mEXPERT[0m
+
+****************************************************
+2 [92mApprentice[0m Lab, 4 [93mPractitioner[0m Lab, 1 [91mExpert[0m Lab
+Number of labs: 7
+****************************************************
+
+
+
+OAuth authentication
+--------------------
+Authentication bypass via OAuth implicit flow		[92mAPPRENTICE[0m
+Forced OAuth profile linking		[93mPRACTITIONER[0m
+OAuth account hijacking via redirect_uri		[93mPRACTITIONER[0m
+Stealing OAuth access tokens via an open redirect		[93mPRACTITIONER[0m
+SSRF via OpenID dynamic client registration		[93mPRACTITIONER[0m
+Stealing OAuth access tokens via a proxy page		[91mEXPERT[0m
+
+****************************************************
+1 [92mApprentice[0m Lab, 4 [93mPractitioner[0m Lab, 1 [91mExpert[0m Lab
+Number of labs: 6
+****************************************************
+
+
+
+File upload vulnerabilities
+---------------------------
+Remote code execution via web shell upload		[92mAPPRENTICE[0m
+Web shell upload via Content-Type restriction bypass		[92mAPPRENTICE[0m
+Web shell upload via path traversal		[93mPRACTITIONER[0m
+Web shell upload via extension blacklist bypass		[93mPRACTITIONER[0m
+Web shell upload via obfuscated file extension		[93mPRACTITIONER[0m
+Remote code execution via polyglot web shell upload		[93mPRACTITIONER[0m
+Web shell upload via race condition		[91mEXPERT[0m
+
+****************************************************
+2 [92mApprentice[0m Lab, 4 [93mPractitioner[0m Lab, 1 [91mExpert[0m Lab
+Number of labs: 7
+****************************************************
+
+
+
+JWT
+---
+JWT authentication bypass via unverified signature		[92mAPPRENTICE[0m
+JWT authentication bypass via flawed signature verification		[92mAPPRENTICE[0m
+JWT authentication bypass via weak signing key		[93mPRACTITIONER[0m
+JWT authentication bypass via jwk header injection		[93mPRACTITIONER[0m
+JWT authentication bypass via jku header injection		[93mPRACTITIONER[0m
+JWT authentication bypass via kid header path traversal		[93mPRACTITIONER[0m
+JWT authentication bypass via algorithm confusion		[91mEXPERT[0m
+JWT authentication bypass via algorithm confusion with no exposed key		[91mEXPERT[0m
+
+****************************************************
+2 [92mApprentice[0m Lab, 4 [93mPractitioner[0m Lab, 2 [91mExpert[0m Lab
+Number of labs: 8
+****************************************************
+
+
+
+Essential skills
+----------------
+Discovering vulnerabilities quickly with targeted scanning		[93mPRACTITIONER[0m
+
+****************************************************
+0 [92mApprentice[0m Lab, 1 [93mPractitioner[0m Lab, 0 [91mExpert[0m Lab
+Number of labs: 1
+****************************************************
+
+
+
+Prototype pollution
+-------------------
+DOM XSS via client-side prototype pollution		[93mPRACTITIONER[0m
+DOM XSS via an alternative prototype pollution vector		[93mPRACTITIONER[0m
+Client-side prototype pollution via flawed sanitization		[93mPRACTITIONER[0m
+Client-side prototype pollution in third-party libraries		[93mPRACTITIONER[0m
+Client-side prototype pollution via browser APIs		[93mPRACTITIONER[0m
+Privilege escalation via server-side prototype pollution		[93mPRACTITIONER[0m
+Detecting server-side prototype pollution without polluted property reflection		[93mPRACTITIONER[0m
+Bypassing flawed input filters for server-side prototype pollution		[93mPRACTITIONER[0m
+Remote code execution via server-side prototype pollution		[93mPRACTITIONER[0m
+Exfiltrating sensitive data via server-side prototype pollution		[91mEXPERT[0m
+
+****************************************************
+0 [92mApprentice[0m Lab, 9 [93mPractitioner[0m Lab, 1 [91mExpert[0m Lab
+Number of labs: 10
+****************************************************
+
+
+

