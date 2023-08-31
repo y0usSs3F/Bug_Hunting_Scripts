@@ -9,7 +9,7 @@ import argparse
 
 def get_arguments():
     parser = argparse.ArgumentParser(description="Process The Inputs")
-    parser.add_argument("-l", "--link", dest="link", help="Link of The Favicon Picture.")
+    parser.add_argument("-l", "--link", dest="link", help="Link of The Favicon Picture To Convert it to Hash.")
     options = parser.parse_args()
     if not options.link:
         parser.error("[-] Please specify Link Path of The Favicon Picture.")
