@@ -7,7 +7,7 @@
 
 
 #
-### You should open the script and provide bunch of API Keys and Tool's Paths on the begininng of the script
+### You should open the script and provide bunch of API Keys and Paths of different Tools on the begininng of the script
 
 
 #
