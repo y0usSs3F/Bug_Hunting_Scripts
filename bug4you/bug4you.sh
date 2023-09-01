@@ -4,9 +4,28 @@
 # The Script is doing lots of stuff for you using threads as fast as possible, including:
 
 #     1) Subdomain Enumeration with 7 different Tools   (subfinder, assetfinder, subbrute, gobuster, dnsgen, censys, crt.sh)
-#     2) Extracting URLs with 5 different Tools         (waybackurls, gospider, gau, katana, linkfinder)
-#     3) Extracting JS_Files with 5 different Tools     (waybackurls, gospider, gau, katana, linkfinder)
-#     4) Extracting Parameters with 6 different Tools   (paramspider, waybackurls, gospider, gau, katana, linkfinder)
+#     2) Extracting URLs From 5 different Tools         (waybackurls, gospider, gau, katana, linkfinder)
+#     3) Extracting JS_Files From 5 different Tools     (waybackurls, gospider, gau, katana, linkfinder)
+#     4) Extracting Parameters From 6 different Tools   (paramspider, waybackurls, gospider, gau, katana, linkfinder)
+
+
+
+# Please Provide the Whole Path of your Tool.
+
+censys_subdomain_finder_Tool_Path=""
+    # Example: censys_subdomain_finder_Tool_Path="/home/carlos/Desktop/Bug_Hunting/Tools/censys-subdomain-finder/censys-subdomain-finder.py"
+
+censys_api_id=""
+    # Example: censys_api_id="12345678-1234-1234-1234-123456789012"
+
+censys_api_secret=""
+    # Example: censys_api_secret="DSAFLKAJ45LKFDJVLKSD23241233D4ER"
+
+linkfinder_Tool_Path=""
+    # Example: linkfinder_Tool_Path="/home/carlos/Desktop/Bug_Hunting/Tools/LinkFinder/linkfinder.py"
+
+Paramspider_Tool_Path=""
+    # Example: Paramspider_Tool_Path="/home/carlos/Desktop/Bug_Hunting/Tools/ParamSpider/paramspider.py"
 
 
 
@@ -33,12 +52,15 @@ REDB="\e[44m"
 
 banner() {
 
-echo -e "${RED} _   _ _   _ _   _ _____ _____ ____  ${RESET}"
-echo -e "${RED}| | | | | | | \ | |_   _| ____|  _ \ ${RESET}"
-echo -e "${RED}| |_| | | | |  \| | | | |  _| | |_) |${RESET}"
-echo -e "${RED}|  _  | |_| | |\  | | | | |___|  _ < ${RESET}"
-echo -e "${RED}|_| |_|\___/|_| \_| |_| |_____|_| \_\\\\${RESET}"
-echo -e "${GREEN}               Created By: bug4you ${RESET}"
+    echo -e "${RED}                          _  _                     ${RESET}"
+    echo -e "${RED} _ __ ___  ___ ___  _ __ | || |  _   _  ___  _   _ ${RESET}"
+    echo -e "${RED}| '__/ _ \/ __/ _ \| '_ \| || |_| | | |/ _ \| | | |${RESET}"
+    echo -e "${RED}| | |  __/ (_| (_) | | | |__   _| |_| | (_) | |_| |${RESET}"
+    echo -e "${RED}|_|  \___|\___\___/|_| |_|  |_|  \__, |\___/ \__,_|${RESET}"
+    echo -e "${RED}                                 |___/             ${RESET}"
+    echo -e "${GREEN}                 Created with <3 By: @bug4you    ${RESET}"
+    echo -e "\n"
+    echo -e "${GREEN}           Follow me For Tips In Bug Hunting: @bug4you      ${RESET}"
 
 }
 
@@ -58,17 +80,17 @@ divider() {
 
 help() {
 
-    # clear
     banner
     echo
-    echo -e "USAGE:$0 [DOMAIN...] [OPTIONS...]"
+    echo -e "USAGE:$0 -d [DOMAIN...] [OPTIONS...]"
+    echo -e ""
     echo -e "\t-h  ,  --help                    Help menu"
     echo -e "\t-d  ,  --domain                  Target Domain like domain.com"
-    echo -e "\t-se ,  --subdomain-enum          Subdomain Enumeration"
-    echo -e "\t-eu ,  --extracting-urls         Extracting URLs"
-    echo -e "\t-ej ,  --extracting-js           Extracting (URLs & JS_Files)"
-    echo -e "\t-ep ,  --extracting-parameters   Subdomain Enumeration & Extracting (URLs & Parameters)"
-    echo -e "\t-a  ,  --all                     Subdomain Enumeration & Extracting (URLs & JS_Files & Parameters)"
+    echo -e "\t-se ,  --subdomain-enum          Subdomain Enumeration From 7 Different Tools"
+    echo -e "\t-eu ,  --extracting-urls         Extracting URLs From 5 different Tools"
+    echo -e "\t-ej ,  --extracting-js           Extracting JS Files From Collected URLs and 5 Different Tools"
+    echo -e "\t-ep ,  --extracting-parameters   (Extracting All Parameters Using ParamSpider From all live Subdomains) & (grab Parameters From URLs Collected From 5 different Tools)"
+    echo -e "\t-a  ,  --all                     All Of The Above Operations, it tooks around 5-15min, and it will give you lots of results"
     echo
 
 }
@@ -77,8 +99,6 @@ help() {
 
 Subdomain_Enumeration() {
 
-    banner
-    divider
 
     (
         # Command 1
@@ -126,7 +146,7 @@ Subdomain_Enumeration() {
     (
         # Command 6
         echo -e "${RED}[-]Gathering Sub-domains from censys...${RESET}"
-        ~/Desktop/Bug_Hunting/Tools/censys-subdomain-finder/censys-subdomain-finder.py wholeip.com --censys-api-id=286f53a4-d73f-4084-a29b-eefcb7035969 --censys-api-secret=dlEnGAG107kvHbY2R5qYHKmTjOQX9UHJ -o censys_subdomains.txt
+        $censys_subdomain_finder_Tool_Path $DOMAIN --censys-api-id=$censys_api_id --censys-api-secret=$censys_api_secret -o censys_subdomains.txt
         echo -e "${GREEN}[+]censys Done!${RESET}"
     ) &
 
@@ -152,7 +172,8 @@ Subdomain_Enumeration() {
 
     # Command 9
     echo -e "${RED}Finding Live Subdomains with httpx...${RESET}"
-    cat all_subdomains.txt | httpx -silent -mc 200 | tee all_200_live_Subdomains.txt
+    cat all_subdomains.txt | httpx -silent -sc -fhr | tee httpx_Results_on_Subdomains.txt
+    cat httpx_Results_on_Subdomains.txt | grep '200' | cut -d ' ' -f 1 > all_httpx_200_live_Subdomains.txt
     echo -e "${GREEN}httpx on Subdomains Finished!${RESET}"
 
 
@@ -166,9 +187,7 @@ Subdomain_Enumeration() {
 
 Extracting_URLs() {
 
-    banner
-    divider
-    URL_Domain="http://$DOMAIN"
+    URL_Domain="https://$DOMAIN"
 
     (
         # Command 1
@@ -209,7 +228,7 @@ Extracting_URLs() {
     (
         # Command 5
         echo -e "${RED}[-]Gathering URLs from linkfinder...${RESET}"
-        ~/Desktop/Bug_Hunting/Tools/LinkFinder/linkfinder.py -i $URL_Domain -o cli | tee linkfinder.txt
+        $linkfinder_Tool_Path -i $URL_Domain -o cli | tee linkfinder.txt
         echo -e "${GREEN}[+]linkfinder Done!${RESET}"
     ) &
 
@@ -228,7 +247,8 @@ Extracting_URLs() {
 
     # Command 7
     echo -e "${RED}Finding Live URLs with httpx...${RESET}"
-    cat all_fetched_URLs.txt | httpx -silent -mc 200 | tee all_200_live_URLs.txt
+    cat all_fetched_URLs.txt | httpx -silent -sc -fhr | tee httpx_Results_on_Urls.txt
+    cat httpx_Results_on_Urls.txt | grep '200' | cut -d ' ' -f 1 > all_httpx_200_live_Urls.txt
     echo -e "${GREEN}httpx on URLs Finished!${RESET}"
 
 
@@ -244,8 +264,6 @@ Extracting_JS_Files() {
 
     # This Function Depends on the Extracting_URLs Function!
 
-    banner
-    divider
 
     (
         # Command 1
@@ -300,9 +318,11 @@ Extracting_JS_Files() {
 
     # Command 7
     echo -e "${RED}Finding Live JS Files with httpx...${RESET}"
-    cat all_JS_Files.txt | httpx -silent -mc 200 | tee all_200_live_JS_Files.txt
+    cat all_JS_Files.txt | httpx -silent -sc -fhr | tee httpx_Results_on_JS_Files.txt
+    cat httpx_Results_on_JS_Files.txt | grep '200' | cut -d ' ' -f 1 > all_httpx_200_live_JS_Files.txt
     echo -e "${GREEN}httpx on JS Files Finished!${RESET}"
 
+    
 
     echo -e "${GREEN}\n\n\n[+]Extracting_JS_Files Function Done!\n\n\n${RESET}"
 
@@ -318,22 +338,20 @@ Extracting_Parameters() {
 
     # This Function Depends on the Subdomain_Enumeration and Extracting_URLs Functions!
 
-    banner
-    divider
     
     (
         echo -e "${RED}Using ParamSpider on live Domains...${RESET}"
-        for URL in $(< all_200_live_Subdomains.txt )
+        for URL in $(< all_httpx_200_live_Subdomains.txt )
         do
-            python3 ~/Desktop/Bug_Hunting/Tools/ParamSpider/paramspider.py -d "${URL}" --level high
+            python3 $Paramspider_Tool_Path -d "${URL}" --level high
         done
         echo -e "${GREEN}ParamSpider on live Domains Finished!${RESET}"
 
 
-        echo -e "${RED}Adding All ParamSpider outputs to all_parameters_from_paramspider.txt file...${RESET}"
-        find $TARGET_PATH/output -type f -exec cat {} + | tee all_parameters_from_paramspider.txt
+        echo -e "${RED}Adding All ParamSpider outputs to all_parameters_from_paramspider_for_all_subdomains.txt file...${RESET}"
+        find $TARGET_PATH/output -type f -exec cat {} + | tee all_parameters_from_paramspider_for_all_subdomains.txt
         rm -rf $TARGET_PATH/output
-        echo -e "${GREEN}Done Adding All ParamSpider outputs to all_parameters_from_paramspider.txt file...${RESET}"
+        echo -e "${GREEN}Done Adding All ParamSpider outputs to all_parameters_from_paramspider_for_all_subdomains.txt file...${RESET}"
     ) &
 
 
@@ -348,7 +366,7 @@ Extracting_Parameters() {
 
 
 
-    cat all_parameters_from_paramspider.txt all_parameters_from_Extracting_URLs_Function.txt > all_parameters.txt
+    cat all_parameters_from_paramspider_for_all_subdomains.txt all_parameters_from_Extracting_URLs_Function.txt > all_parameters.txt
 
     echo -e "${GREEN}\n\n\n[+]Extracting_Parameters Function Done!\n\n\n${RESET}"
 
@@ -391,6 +409,8 @@ main() {
         exit 1
     fi
 
+
+    banner
 
     while [ $# -gt 0 ]
     do
@@ -486,7 +506,10 @@ main() {
 
     divider
     divider
-    echo -e "${GREEN}================================ RECON COMPLETED <3 ================================${RESET}"
+    echo -e "${GREEN}================================       RECON COMPLETED <3         ==============================${RESET}"
+    echo -e "${GREEN}================================   Created with <3 By: @bug4you   ==============================${RESET}"
+    echo -e "${GREEN}====================      Follow me For Tips In Bug Hunting: @bug4you      =====================${RESET}"
+    divider
     divider
     divider
 
