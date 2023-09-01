@@ -1,4 +1,4 @@
-## bug4you.sh is a script that do lots of stuff for you using threads as fast as possible, including:
+## recon4y0u.sh is a script that do lots of stuff for you using threads as fast as possible, including:
 
 ####     1) Subdomain Enumeration with 7 different Tools   (subfinder, assetfinder, subbrute, gobuster, dnsgen, censys, crt.sh)
 ####     2) Extracting URLs with 5 different Tools         (waybackurls, gospider, gau, katana, linkfinder)
@@ -11,7 +11,7 @@
 
 
 #
-### USAGE:  ./bug4y0u.sh -d [DOMAIN...] [OPTIONS...]
+### USAGE:  ./recon4y0u.sh -d [DOMAIN...] [OPTIONS...]
 	-h  ,  --help                    Help menu
 	-d  ,  --domain                  Target Domain like domain.com
 	-se ,  --subdomain-enum          Subdomain Enumeration
