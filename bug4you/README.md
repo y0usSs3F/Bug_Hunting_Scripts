@@ -6,6 +6,8 @@
 ####     4) Extracting Parameters with 6 different Tools   (paramspider, waybackurls, gospider, gau, katana, linkfinder)
 
 
+### You should open the script and provide bunch of APIs Keys and Tool's Paths on the begininng of the script
+
 
 #
 ### USAGE:  ./bug4y0u.sh -d [DOMAIN...] [OPTIONS...]
