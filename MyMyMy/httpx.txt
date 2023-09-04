@@ -1,4 +1,3 @@
-https://crt.sh
 http://demo.popin.cc
 https://d.popin.cc
 https://app.popin.cc
