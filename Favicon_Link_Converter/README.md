@@ -1,4 +1,4 @@
-# Usage:
+# Usage: ./Shodan_Favicon_Link_Converter.py -l https://nasa.gov/favicon.ico
 
 #
 
