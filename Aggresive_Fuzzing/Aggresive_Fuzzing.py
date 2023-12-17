@@ -8,19 +8,21 @@ import subprocess
 threads = []
 
 
-def fuzzing_with_ffuf(url):
-    command = f"ffuf -u https://{url}/FUZZ -w Your_Wordlist.txt -t 200 | tee -a /home/yousseff/Desktop/Bug_Hunting/Targets/test/{url}.txt"
+def fuzzing_with_ffuf(url, wordlist):
+    command = f"ffuf -u https://{url}/FUZZ -w {wordlist} -t 200 | tee -a /home/yousseff/Desktop/Bug_Hunting/Targets/test/{url}.txt"
     subprocess.run(command, shell=True)
 
 
 def main():
 
-    if len(sys.argv) != 2:
-        print("(+) Usage: %s <urls_to_fuzz.txt>" % sys.argv[0])
-        print("(+) Example: %s urls.txt" % sys.argv[0])
+    if len(sys.argv) != 3:
+        print("(+) Usage: %s <urls_to_fuzz.txt> <wordlist.txt>" % sys.argv[0])
+        print("(+) Example: %s urls.txt wordlist.txt" % sys.argv[0])
         return
 
     urls_file = sys.argv[1]
+    wordlist = sys.argv[2]
+
 
     try:
 
@@ -30,7 +32,7 @@ def main():
             for url in urls:
 
                 url = url.strip()
-                t = threading.Thread(target=fuzzing_with_ffuf, args=(url,))
+                t = threading.Thread(target=fuzzing_with_ffuf, args=(url,wordlist))
                 t.start()
                 threads.append(t)
 
