@@ -4,4 +4,4 @@
 
 #### USAGE:
 
-##### └─$ ./find_files_with_200.sh /path/to/your/directory
+##### └─$ ./Find_Files_With_200.sh /path/to/your/directory
