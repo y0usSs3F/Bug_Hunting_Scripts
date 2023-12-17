@@ -3,5 +3,5 @@
 
 #### USAGE:
 
-##### python3 Aggresive_Fuzzing.py URLs_OR_Domains.txt
+##### └─$ python3 Aggresive_Fuzzing.py URLs_OR_Domains.txt Wordlist.txt
 
