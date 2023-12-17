@@ -8,31 +8,31 @@ import subprocess
 threads = []
 
 
-def fuzzing_with_ffuf(url, wordlist):
-    command = f"ffuf -u https://{url}/FUZZ -w {wordlist} -t 200 | tee -a /home/yousseff/Desktop/Bug_Hunting/Targets/test/{url}.txt"
+def fuzzing_with_ffuf(url_or_domain, wordlist):
+    command = f"ffuf -u https://{url_or_domain}/FUZZ -w {wordlist} -t 200 | tee -a /home/yousseff/Desktop/Bug_Hunting/Targets/test/{url_or_domain}.txt"
     subprocess.run(command, shell=True)
 
 
 def main():
 
     if len(sys.argv) != 3:
-        print("(+) Usage: %s <urls_to_fuzz.txt> <wordlist.txt>" % sys.argv[0])
-        print("(+) Example: %s urls.txt wordlist.txt" % sys.argv[0])
+        print("(+) Usage: %s <urls_or_domains_to_fuzz.txt> <wordlist.txt>" % sys.argv[0])
+        print("(+) Example: %s urls_or_domains.txt wordlist.txt" % sys.argv[0])
         return
 
-    urls_file = sys.argv[1]
+    urls_or_domains_file = sys.argv[1]
     wordlist = sys.argv[2]
 
 
     try:
 
-        with open(urls_file, 'r') as file:
-            urls = file.readlines()
+        with open(urls_or_domains_file, 'r') as file:
+            urls_or_domains = file.readlines()
 
-            for url in urls:
+            for url_or_domain in urls_or_domains:
 
-                url = url.strip()
-                t = threading.Thread(target=fuzzing_with_ffuf, args=(url,wordlist))
+                url_or_domain = url_or_domain.strip()
+                t = threading.Thread(target=fuzzing_with_ffuf, args=(url_or_domain,wordlist))
                 t.start()
                 threads.append(t)
 
@@ -41,7 +41,7 @@ def main():
 
 
     except FileNotFoundError:
-        print(f"Error: File '{urls_file}' not found.")
+        print(f"Error: File '{urls_or_domains_file}' not found.")
 
     except Exception as e:
         print(f"An error occurred: {e}")
