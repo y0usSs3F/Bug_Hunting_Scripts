@@ -1,4 +1,3 @@
-
 # Convert Domains to IPs:
 for domain in $(cat all_subs.txt); do echo "Domain: $domain, IP: $(dig +short $domain | head -n 1)"; done | tee result_IPs.txt
 
