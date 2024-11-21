@@ -1,3 +1,4 @@
+### crt.sh is a script that deeply going through gathering the subs of the subdomains at any level you need.
 ## USAGE:
 ./crtsh.sh -t target.com -d {number_of_deep (ranging from 1 to 5 only)}
 ## Example:
